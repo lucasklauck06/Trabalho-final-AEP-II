@@ -31,16 +31,43 @@ public class GestorClientes extends Gestor<Cliente> {
 
     @Override
     protected void atualizarEntidade(Cliente cliente, Scanner scanner) {
-        System.out.print("Digite o novo nome (atual: " + cliente.getNome() + "): ");
-        String nome = scanner.nextLine();
-        cliente.setNome(nome);
+    boolean continuar = true;
 
-        System.out.print("Digite o novo CPF (atual: " + cliente.getCpf() + "): ");
-        String cpf = scanner.nextLine();
-        cliente.setCpf(cpf);
+    while (continuar) {
+        System.out.println("Selecione o atributo que deseja editar:");
+        System.out.println("1. Nome");
+        System.out.println("2. CPF");
+        System.out.println("3. Cidade");
+        System.out.println("4. Sair");
+        System.out.print("Opção: ");
+        int opcao = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer
 
-        System.out.print("Digite a nova cidade (atual: " + cliente.getCidade() + "): ");
-        String cidade = scanner.nextLine();
-        cliente.setCidade(cidade);
+        switch (opcao) {
+            case 1:
+                System.out.print("Digite o novo nome (atual: " + cliente.getNome() + "): ");
+                String nome = scanner.nextLine();
+                cliente.setNome(nome);
+                System.out.println("Nome atualizado!");
+                break;
+            case 2:
+                System.out.print("Digite o novo CPF (atual: " + cliente.getCpf() + "): ");
+                String cpf = scanner.nextLine();
+                cliente.setCpf(cpf);
+                System.out.println("CPF atualizado!");
+                break;
+            case 3:
+                System.out.print("Digite a nova cidade (atual: " + cliente.getCidade() + "): ");
+                String cidade = scanner.nextLine();
+                cliente.setCidade(cidade);
+                System.out.println("Cidade atualizada!");
+                break;
+            case 4:
+                continuar = false;
+                break;
+            default:
+                System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
     }
 }

@@ -33,20 +33,50 @@ public class GestorMotoristas extends Gestor<Motorista> {
 
     @Override
     protected void atualizarEntidade(Motorista motorista, Scanner scanner) {
-        System.out.print("Digite o novo nome (atual: " + motorista.getNome() + "): ");
-        String nome = scanner.nextLine();
-        motorista.setNome(nome);
+    boolean continuar = true;
 
-        System.out.print("Digite o novo CPF (atual: " + motorista.getCpf() + "): ");
-        String cpf = scanner.nextLine();
-        motorista.setCpf(cpf);
+    while (continuar) {
+        System.out.println("Selecione o atributo que deseja editar:");
+        System.out.println("1. Nome");
+        System.out.println("2. CPF");
+        System.out.println("3. CNH");
+        System.out.println("4. Cidade");
+        System.out.println("5. Sair");
+        System.out.print("Opção: ");
+        int opcao = scanner.nextInt();
+        scanner.nextLine(); // Limpar o buffer
 
-        System.out.print("Digite a nova CNH (atual: " + motorista.getCnh() + "): ");
-        String cnh = scanner.nextLine();
-        motorista.setCnh(cnh);
-
-        System.out.print("Digite a nova cidade (atual: " + motorista.getCidade() + "): ");
-        String cidade = scanner.nextLine();
-        motorista.setCidade(cidade);
+        switch (opcao) {
+            case 1:
+                System.out.print("Digite o novo nome (atual: " + motorista.getNome() + "): ");
+                String nome = scanner.nextLine();
+                motorista.setNome(nome);
+                System.out.println("Nome atualizado!");
+                break;
+            case 2:
+                System.out.print("Digite o novo CPF (atual: " + motorista.getCpf() + "): ");
+                String cpf = scanner.nextLine();
+                motorista.setCpf(cpf);
+                System.out.println("CPF atualizado!");
+                break;
+            case 3:
+                System.out.print("Digite a nova CNH (atual: " + motorista.getCnh() + "): ");
+                String cnh = scanner.nextLine();
+                motorista.setCnh(cnh);
+                System.out.println("CNH atualizada!");
+                break;
+            case 4:
+                System.out.print("Digite a nova cidade (atual: " + motorista.getCidade() + "): ");
+                String cidade = scanner.nextLine();
+                motorista.setCidade(cidade);
+                System.out.println("Cidade atualizada!");
+                break;
+            case 5:
+                continuar = false;
+                break;
+            default:
+                System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
     }
 }

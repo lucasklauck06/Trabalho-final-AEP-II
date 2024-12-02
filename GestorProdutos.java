@@ -30,13 +30,37 @@ public class GestorProdutos extends Gestor<Produto> {
 
     @Override
     protected void atualizarEntidade(Produto produto, Scanner scanner) {
-        System.out.print("Digite o novo nome (atual: " + produto.getNome() + "): ");
-        String nome = scanner.nextLine();
-        produto.setNome(nome);
+    boolean continuar = true;
 
-        System.out.print("Digite a nova quantidade (atual: " + produto.getQuantidade() + "): ");
-        int quantidade = scanner.nextInt();
+    while (continuar) {
+        System.out.println("Selecione o atributo que deseja editar:");
+        System.out.println("1. Nome");
+        System.out.println("2. Quantidade");
+        System.out.println("3. Sair");
+        System.out.print("Opção: ");
+        int opcao = scanner.nextInt();
         scanner.nextLine(); // Limpar o buffer
-        produto.setQuantidade(quantidade);
+
+        switch (opcao) {
+            case 1:
+                System.out.print("Digite o novo nome (atual: " + produto.getNome() + "): ");
+                String nome = scanner.nextLine();
+                produto.setNome(nome);
+                System.out.println("Nome atualizado!");
+                break;
+            case 2:
+                System.out.print("Digite a nova quantidade (atual: " + produto.getQuantidade() + "): ");
+                int quantidade = scanner.nextInt();
+                scanner.nextLine(); // Limpar o buffer
+                produto.setQuantidade(quantidade);
+                System.out.println("Quantidade atualizada!");
+                break;
+            case 3:
+                continuar = false;
+                break;
+            default:
+                System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
     }
 }
