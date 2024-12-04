@@ -10,7 +10,6 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    // Getters e Setters
     public int getId() { return id; }
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }

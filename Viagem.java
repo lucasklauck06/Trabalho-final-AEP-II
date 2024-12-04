@@ -9,7 +9,7 @@ public class Viagem {
     private List<Produto> produtos;
     private Motorista motorista;
     private Cliente cliente;
-    private String status; // "Iniciada" ou "Finalizada"
+    private String status; 
 
     public Viagem(String descricao, String cidadeOrigem, String cidadeDestino, 
                   List<Produto> produtos, Motorista motorista, Cliente cliente) {
@@ -23,7 +23,6 @@ public class Viagem {
         this.status = "Iniciada";
     }
 
-    // Getters e Setters
     public int getId() { return id; }
     public String getDescricao() { return descricao; }
     public void setDescricao(String descricao) { this.descricao = descricao; }

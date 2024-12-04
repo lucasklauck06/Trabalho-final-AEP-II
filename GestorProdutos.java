@@ -8,7 +8,7 @@ public class GestorProdutos extends Gestor<Produto> {
         String nome = scanner.nextLine();
         System.out.print("Digite a quantidade: ");
         int quantidade = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer
+        scanner.nextLine(); 
         return new Produto(nome, quantidade);
     }
 
@@ -39,7 +39,7 @@ public class GestorProdutos extends Gestor<Produto> {
         System.out.println("3. Sair");
         System.out.print("Opção: ");
         int opcao = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer
+        scanner.nextLine(); 
 
         switch (opcao) {
             case 1:
@@ -51,7 +51,7 @@ public class GestorProdutos extends Gestor<Produto> {
             case 2:
                 System.out.print("Digite a nova quantidade (atual: " + produto.getQuantidade() + "): ");
                 int quantidade = scanner.nextInt();
-                scanner.nextLine(); // Limpar o buffer
+                scanner.nextLine(); 
                 produto.setQuantidade(quantidade);
                 System.out.println("Quantidade atualizada!");
                 break;
